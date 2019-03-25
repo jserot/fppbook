@@ -1,0 +1,17 @@
+fsm model InputCar<n: int>(
+     in h: event,
+     in rx_rd: bool,
+     out rx_data: char,
+     out rx_rdy: bool)
+  {
+  states: E1, E2, E3;
+  vars:
+    i: int,
+    c: char;
+  trans:
+    E1 -- h.(i<n) | rx_data:=input_chars[i]; rx_rdy:=1 -> E2,
+    E1 -- h.(i=n) | rx_rdy:=0 -> E1,
+    E2 -- h.(rx_rd=1) -> E3,  # Wait for read signal
+    E3 -- h.(rx_rd=0) | i:=i+1 -> E1;  # Wait for ack
+  itrans: | rx_rdy:=0; i:=0 -> E1;
+  }

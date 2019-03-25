@@ -1,0 +1,34 @@
+#  +---------+              +----------+              +----------+
+#  |         |    r_rdy1    |          |    r_rdy2    |          |
+#  |         |<-------------|          |<-------------|          |
+#  |         |   tok_in     |          |   tok_out    |          |
+#  |         |      –       |          |      –       |          |
+#  |  Input  |----->|------>|   Calc   |----->|------>|  Output  |
+#  |   Tok   |      –       |   Core   |      –       |    Tok   |
+#  |         |    e_rdy1    |          |    e_rdy2    |          |
+#  |         |------------->|          |------------->|          |
+#  |         |              |          |              |          |
+#  +---------+              +----------+              +----------+
+
+constant input_tokens: token_t array[9] = [ # 2, Enter, 10, *, 5, Enter, 1, -, +
+  {tag=Number,num=2},
+  {tag=Enter,num=0},
+  {tag=Number,num=10},
+  {tag=Mult,num=0},
+  {tag=Number,num=5},
+  {tag=Enter,num=0},
+  {tag=Number,num=1},
+  {tag=Minus,num=0},
+  {tag=Plus,num=0}
+  ] 
+
+input H:event = periodic(10,10,800)
+
+shared tok_in: token_t
+shared tok_out: token_t
+shared r_rdy1, e_rdy1: bool
+shared r_rdy2, e_rdy2: bool
+
+fsm i = InputTok<9>(H,r_rdy1,tok_in,e_rdy1)
+fsm c = CalcCore(H,e_rdy1,tok_in,r_rdy1,r_rdy2,tok_out,e_rdy2)
+fsm o = OutputTok(H,e_rdy2,tok_out,r_rdy2)

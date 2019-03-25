@@ -1,0 +1,13 @@
+fsm model OutputCar(
+     in h: event,
+     in tx_wr: bool,
+     in tx_data: char,
+     out tx_rdy: bool)
+  {
+  states: R1, R2;
+  vars: c: char;
+  trans:
+    R1 -- h.tx_wr=1 | c:=tx_data; tx_rdy:=0 -> R2,
+    R2 -- h.tx_wr=0 | tx_rdy:=1 -> R1;
+  itrans: | tx_rdy:=1 -> R1;
+  }

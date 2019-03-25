@@ -1,0 +1,36 @@
+# Test program for the [calc] model
+#
+# +---------+              +----------+             +----------+            +----------+               +----------+
+# |         |    rx_rd     |          |    r_rdy2   |          |    r_rdy3  |          |    tx_rdy     |          |
+# |         |<-------------|          |<------------|          |<-----------|          |<--------------|          |
+# |         |              |          |             |          |            |          |               |          |
+# |         |  c1:char     |          |  t2:token   |          |  t3:token  |          |  c4:char      |          |
+# |         |      –       |          |      –      |          |      –     |          |      –        |          |
+# |  Input  |----->|------>|   C2T    |----->|------|   Calc   |----->|-----|   T2C    |----->|------->|  Output  |
+# |   Car   |      –       |          |      –      |   Core   |      –     |          |      –        |    Car   |
+# |         |              |          |             |          |            |          |               |          |
+# |         |   rx_rdy     |          |    e_rdy2   |          |    e_rdy3  |          |    tx_wr      |          |
+# |         |------------->|          |------------>|          |------------|          |-------------->|          |
+# |         |              |          |             |          |            |          |               |          |
+# +---------+              +----------+             +----------+            +----------+               +----------+
+
+# constant input_chars : char array[4] = [ '1', '2', '3', '^' ]
+# constant input_chars : char array[6] = [ '1', '^', '2', '+', '4', '*' ] 
+constant input_chars : char array[10] = [ '2', '^', '1', '0', '*', '5', '^', '1', '-',  '+' ] 
+
+input H:event = periodic(10,10,850)
+
+shared c1: char
+shared rx_rdy, rx_rd: bool
+shared t2: token_t
+shared r_rdy2, e_rdy2: bool
+shared t3: token_t
+shared r_rdy3, e_rdy3: bool
+shared c4: char
+shared tx_rdy, tx_wr: bool
+
+fsm inp = InputCar<10>(H, rx_rd, c1, rx_rdy)
+fsm c2t = C2T(H, rx_rdy, c1, rx_rd, r_rdy2, t2, e_rdy2)
+fsm calc = CalcCore(H, e_rdy2, t2, r_rdy2, r_rdy3, t3, e_rdy3)
+fsm t2c = T2C(H, e_rdy3, t3, r_rdy3, tx_wr, c4, tx_rdy)
+fsm outp = OutputCar(H, tx_wr, c4, tx_rdy)

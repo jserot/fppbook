@@ -1,0 +1,22 @@
+# UART - TX Part (2eme version)
+
+fsm model TX <d: int>  (
+     # d donne la durée d'un bit (en périodes de H)
+     in h: event,
+     in txData: int<8>,
+     in txWr: bool,
+    out txRdy: bool,
+    out tx: bit)  
+  {
+  states: Repos, Emission;
+  vars:
+    r: int<11>,
+    i: int<0:11>,
+    k: int<0:d>;
+  trans:
+    Repos -- h.txWr=1 | r[10]:=1; r[9]:=parite(txData); r[8:1]:=txData; r[0]:=0; txRdy:=0; k:=0; i:=0 -> Emission,
+    Emission -- h.k<d-1 | k:=k+1 -> Emission,
+    Emission -- h.(k=d-1).(i<11) | tx:=r[0]; r:=r>>1; i:=i+1; k:=0 -> Emission,
+    Emission -- h.(k=d-1).(i=11) | txRdy:=1 -> Repos;
+  itrans: | txRdy:=1; r:=0; tx:=1 -> Repos;
+  }

@@ -1,0 +1,13 @@
+fsm model OutputTok(
+     in h: event,
+     in e_rdy: bool,
+     in data: token_t,
+     out r_rdy: bool)
+  {
+  states: R1, R2;
+  vars: t: token_t;
+  trans:
+    R1 -- h.e_rdy=1 | t:=data; r_rdy:=0 -> R2,
+    R2 -- h.e_rdy=0 | r_rdy:=1 -> R1;
+  itrans: | r_rdy:=1 -> R1;
+  }

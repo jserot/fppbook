@@ -1,0 +1,25 @@
+# 3th order FIR filter
+# y_i = a_0*x_i + a_1*x_{i-1} + a_2*x_{i-2}  for all i>1
+# y_0 = a_0*x_0
+# y_1 = a_0*x_0+a_1*x_1
+
+fsm model fir3 <a: int array[3]>  (
+     in h: event,
+     in x: int,
+    out y: int)
+  {
+  states: Run;
+  vars:
+    z: int array[2]; # z[0]=zx, z[1]=zzx, ... 
+  trans:
+    Run -- h | y:=a[0]*x+a[1]*z[0]+a[2]*z[1]; z[1]:=z[0]; z[0]:=x -> Run;
+  itrans: | z[0]:=0; z[1]:=0 -> Run;
+  }
+
+input H:event = periodic(10,10,110)
+input X: int = value_changes(0:0, 15:2, 25:4, 35:6, 45:-8, 55:-6, 65:4, 75:-2, 85:0)
+output Y: int
+
+constant coeffs: int array[3] = [2,-1,1]
+
+fsm f = fir3<coeffs>(H,X,Y)

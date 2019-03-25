@@ -1,0 +1,9 @@
+# Basic testbench for the TX model
+
+input H:event = periodic(10,10,600)
+input TxWr: bool = value_changes(0:0, 15:1, 25:0)
+input TxData: int<8> = value_changes(0:170)
+output tx: bit
+output TxRdy: bool
+
+fsm t = TX<4>(H,TxData,TxWr,TxRdy,tx)

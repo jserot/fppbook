@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Fri Dec 28 08:01:34 2018
+[*]
+[dumpfile] "/Users/jserot/Desktop/SF1/vhdl/rpcalc/rtl/src/tb_core.ghw"
+[dumpfile_mtime] "Fri Dec 28 06:47:10 2018"
+[dumpfile_size] 3204
+[savefile] "/Users/jserot/Desktop/SF1/vhdl/rpcalc/rtl/src/tb_core.sav"
+[timestart] 0
+[size] 1155 602
+[pos] 113 43
+*-26.469545 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_core.
+[treeopen] top.tb_core.tok_in.
+[treeopen] top.tb_core.tok_out.
+[sst_width] 198
+[signals_width] 167
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@28
+top.tb_core.clk
+top.tb_core.rst
++{top.tb_core.tok_in:tag} top.tb_core.tok_in.tag
+@24
++{top.tb_core.tok_in:num[7:0]} #{top.tb_core.tok_in.num[15:0]} top.tb_core.tok_in.num[15] top.tb_core.tok_in.num[14] top.tb_core.tok_in.num[13] top.tb_core.tok_in.num[12] top.tb_core.tok_in.num[11] top.tb_core.tok_in.num[10] top.tb_core.tok_in.num[9] top.tb_core.tok_in.num[8] top.tb_core.tok_in.num[7] top.tb_core.tok_in.num[6] top.tb_core.tok_in.num[5] top.tb_core.tok_in.num[4] top.tb_core.tok_in.num[3] top.tb_core.tok_in.num[2] top.tb_core.tok_in.num[1] top.tb_core.tok_in.num[0]
+@28
+top.tb_core.r_rdy1
+top.tb_core.e_rdy1
++{top.tb_core.tok_out:tag} top.tb_core.tok_out.tag
+@25
++{top.tb_core.tok_out:num[7:0]} #{top.tb_core.tok_out.num[15:0]} top.tb_core.tok_out.num[15] top.tb_core.tok_out.num[14] top.tb_core.tok_out.num[13] top.tb_core.tok_out.num[12] top.tb_core.tok_out.num[11] top.tb_core.tok_out.num[10] top.tb_core.tok_out.num[9] top.tb_core.tok_out.num[8] top.tb_core.tok_out.num[7] top.tb_core.tok_out.num[6] top.tb_core.tok_out.num[5] top.tb_core.tok_out.num[4] top.tb_core.tok_out.num[3] top.tb_core.tok_out.num[2] top.tb_core.tok_out.num[1] top.tb_core.tok_out.num[0]
+@28
+top.tb_core.r_rdy2
+top.tb_core.e_rdy2
+[pattern_trace] 1
+[pattern_trace] 0

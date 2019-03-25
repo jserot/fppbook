@@ -1,0 +1,5 @@
+Files in this directory are taken verbatim from the Virtual JTAG UART toolkit.
+See source code for credits and licence.
+The only modication is [vj_uart.vhd] which has been transcripted from Verilog 
+to VHDL and modified to expose a slightly difference interface.
+

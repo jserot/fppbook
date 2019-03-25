@@ -1,0 +1,41 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Tue Jan  1 10:38:18 2019
+[*]
+[dumpfile] "/Users/jserot/Desktop/SF1/vhdl/csn-book/ch4/addbcd/tb4.vcd"
+[dumpfile_mtime] "Tue Jan  1 10:37:21 2019"
+[dumpfile_size] 2862
+[savefile] "/Users/jserot/Desktop/SF1/vhdl/csn-book/ch4/addbcd/tb4.sav"
+[timestart] 0
+[size] 1000 600
+[pos] 139 0
+*-25.922365 173200000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 198
+[signals_width] 121
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@24
+a3[3:0]
+a2[3:0]
+a1[3:0]
+a0[3:0]
+b3[3:0]
+b2[3:0]
+b1[3:0]
+b0[3:0]
+#{s4[3:0]} s4[0]
+s3[3:0]
+s2[3:0]
+@c00025
+s1[3:0]
+@29
+(0)s1[3:0]
+(1)s1[3:0]
+(2)s1[3:0]
+(3)s1[3:0]
+@1401201
+-group_end
+@24
+s0[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

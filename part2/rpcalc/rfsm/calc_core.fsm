@@ -1,0 +1,28 @@
+fsm model CalcCore(
+     in h: event,
+     in e_rdy1: bool,
+     in tok_in: token_t,
+     out r_rdy1: bool,
+     in r_rdy2: bool,
+     out tok_out: token_t,
+     out e_rdy2: bool)
+  {
+  states: R1, R2, Eval, E1, E2;
+  vars:
+    x, y, z: int,
+    t: token_t,
+    lift: bool;
+  trans:
+         R1 -- h.e_rdy1=1 | t:=tok_in; r_rdy1:=0 -> R2,
+         R2 -- h.e_rdy1=0 | r_rdy1:=1 -> Eval,
+    Eval -- h.(t.tag=Number).(lift=1) | z:=y; y:=x; x:=t.num -> R1,   # Number (push)
+    Eval -- h.(t.tag=Number).(lift=0) | x:=t.num -> R1,               # Number (copy)
+    Eval -- h.(t.tag=Enter) | z:=y; y:=x; lift:=0 -> R1,              # Enter
+    Eval -- h.(t.tag=Plus) | x:=y+x; y:=z -> E1,                      # Plus
+    Eval -- h.(t.tag=Minus) | x:=y-x; y:=z -> E1,                     # Minus
+    Eval -- h.(t.tag=Mult) | x:=y*x; y:=z -> E1,                      # Mult
+    Eval -- h.(t.tag=Div) | x:=y/x; y:=z -> E1,                       # Div
+         E1 -- h.r_rdy2=1 | t.tag:=Number; t.num:=x; tok_out:=t; e_rdy2:=1 -> E2,
+         E2 -- h.r_rdy2=0 | e_rdy2:=0; lift:=1 -> R1;
+  itrans: | r_rdy1:=1; e_rdy2:=0; lift:=0 -> R1;
+  }

@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Sun Nov 11 14:04:39 2018
+[*]
+[dumpfile] "/Users/jserot/Documents/Enseignement/Cours/MCSN/book/src/ch2/handshake/v2/sim/main.vcd"
+[dumpfile_mtime] "Sun Nov 11 14:03:47 2018"
+[dumpfile_size] 2537
+[savefile] "/Users/jserot/Documents/Enseignement/Cours/MCSN/book/src/ch2/handshake/v2/sim/main.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] 162 99
+*-4.592242 300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 198
+[signals_width] 124
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@28
+top.He
+top.e.\e.state
+@24
+top.v[7:0]
+@28
+top.r_rdy
+top.e_rdy
+top.Hr
+top.r.\r.state
+@24
+top.r.\r.x[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

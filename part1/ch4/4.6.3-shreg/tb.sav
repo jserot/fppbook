@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Thu Sep 13 12:16:41 2018
+[*]
+[dumpfile] "/Users/jserot/Documents/Enseignement/Cours/MCSN/book/src/ch4/shreg/tb.ghw"
+[dumpfile_mtime] "Thu Sep 13 12:15:13 2018"
+[dumpfile_size] 2009
+[savefile] "/Users/jserot/Documents/Enseignement/Cours/MCSN/book/src/ch4/shreg/tb.sav"
+[timestart] 0
+[size] 1000 600
+[pos] 64 8
+*-25.028597 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb.
+[treeopen] top.tb.u2.dout.
+[treeopen] top.tb.u3.
+[treeopen] top.tb.u4.
+[treeopen] top.tb.u4.dout.
+[sst_width] 198
+[signals_width] 141
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@28
+top.tb.u1.rst
+top.tb.u1.clk
++{din1} top.tb.u1.din
+@800028
+#{top.tb.dout1[0:3]} top.tb.dout1[0] top.tb.dout1[1] top.tb.dout1[2] top.tb.dout1[3]
+@28
+top.tb.dout1[0]
+top.tb.dout1[1]
+top.tb.dout1[2]
+top.tb.dout1[3]
+@1001200
+-group_end
+@24
++{din2[0:7]} #{top.tb.u2.din[0:7]} top.tb.u2.din[0] top.tb.u2.din[1] top.tb.u2.din[2] top.tb.u2.din[3] top.tb.u2.din[4] top.tb.u2.din[5] top.tb.u2.din[6] top.tb.u2.din[7]
+#{top.tb.u2.dout[0][7:0]} top.tb.u2.dout[0][7] top.tb.u2.dout[0][6] top.tb.u2.dout[0][5] top.tb.u2.dout[0][4] top.tb.u2.dout[0][3] top.tb.u2.dout[0][2] top.tb.u2.dout[0][1] top.tb.u2.dout[0][0]
+#{top.tb.u2.dout[1][7:0]} top.tb.u2.dout[1][7] top.tb.u2.dout[1][6] top.tb.u2.dout[1][5] top.tb.u2.dout[1][4] top.tb.u2.dout[1][3] top.tb.u2.dout[1][2] top.tb.u2.dout[1][1] top.tb.u2.dout[1][0]
+#{top.tb.u2.dout[2][7:0]} top.tb.u2.dout[2][7] top.tb.u2.dout[2][6] top.tb.u2.dout[2][5] top.tb.u2.dout[2][4] top.tb.u2.dout[2][3] top.tb.u2.dout[2][2] top.tb.u2.dout[2][1] top.tb.u2.dout[2][0]
+#{top.tb.u2.dout[3][7:0]} top.tb.u2.dout[3][7] top.tb.u2.dout[3][6] top.tb.u2.dout[3][5] top.tb.u2.dout[3][4] top.tb.u2.dout[3][3] top.tb.u2.dout[3][2] top.tb.u2.dout[3][1] top.tb.u2.dout[3][0]
+@28
+#{top.tb.u3.dout[0:3]} top.tb.u3.dout[0] top.tb.u3.dout[1] top.tb.u3.dout[2] top.tb.u3.dout[3]
+@c00024
++{top.tb.u4.dout4[0][7:0]} #{top.tb.u4.dout[0][7:0]} top.tb.u4.dout[0][7] top.tb.u4.dout[0][6] top.tb.u4.dout[0][5] top.tb.u4.dout[0][4] top.tb.u4.dout[0][3] top.tb.u4.dout[0][2] top.tb.u4.dout[0][1] top.tb.u4.dout[0][0]
+@28
+top.tb.u4.dout[0][7]
+top.tb.u4.dout[0][6]
+top.tb.u4.dout[0][5]
+top.tb.u4.dout[0][4]
+top.tb.u4.dout[0][3]
+top.tb.u4.dout[0][2]
+top.tb.u4.dout[0][1]
+top.tb.u4.dout[0][0]
+@1401204
+-group_end
+@24
++{top.tb.u4.dout4[1][7:0]} #{top.tb.u4.dout[1][7:0]} top.tb.u4.dout[1][7] top.tb.u4.dout[1][6] top.tb.u4.dout[1][5] top.tb.u4.dout[1][4] top.tb.u4.dout[1][3] top.tb.u4.dout[1][2] top.tb.u4.dout[1][1] top.tb.u4.dout[1][0]
++{top.tb.u4.dout4[2][7:0]} #{top.tb.u4.dout[2][7:0]} top.tb.u4.dout[2][7] top.tb.u4.dout[2][6] top.tb.u4.dout[2][5] top.tb.u4.dout[2][4] top.tb.u4.dout[2][3] top.tb.u4.dout[2][2] top.tb.u4.dout[2][1] top.tb.u4.dout[2][0]
++{top.tb.u4.dout4[3][7:0]} #{top.tb.u4.dout[3][7:0]} top.tb.u4.dout[3][7] top.tb.u4.dout[3][6] top.tb.u4.dout[3][5] top.tb.u4.dout[3][4] top.tb.u4.dout[3][3] top.tb.u4.dout[3][2] top.tb.u4.dout[3][1] top.tb.u4.dout[3][0]
+[pattern_trace] 1
+[pattern_trace] 0

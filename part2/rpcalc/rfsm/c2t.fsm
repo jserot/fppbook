@@ -1,0 +1,37 @@
+function char_to_tag(c:char) : tag_t 
+{
+  return c='^' ? Enter : (c='+' ? Plus : (c='-' ? Minus : (c='*' ? Mult : (c='/' ? Div : Number))))
+}
+
+function char_to_num(c: char) : int<8>
+{
+  return (c::int<8>)-('0'::int<8>)
+}
+
+fsm model C2T(
+     in h: event,
+     in rx_rdy: bool,
+     in rx_data: char,
+     out rx_rd: bool,
+     in r_rdy: bool,
+     out tok_out: token_t,
+     out e_rdy: bool)
+  {
+  states: WaitC, Get, Lex, WriteNum, Sync1, WriteTok, Sync2;
+  vars:
+    c: char,
+    t1, t2: token_t,
+    acc: int,
+    num_p: bool; # Number pending
+  trans:
+    WaitC -- h.rx_rdy=1 | rx_rd:=1 -> Get,
+    Get -- h | rx_rd:=0; c:=rx_data -> Lex,
+   *Lex -- h.(c>='0').(c<='9') | acc:=acc*10+char_to_num(c); num_p:=1 -> WaitC, # Digit
+    Lex -- h.(num_p=1) | t1.tag:=Number; t1.num:=acc; t2.tag:=char_to_tag(c) -> WriteNum,       # End of number
+    Lex -- h.(num_p=0) | t2.tag:=char_to_tag(c) -> WriteTok,       # End of number
+    WriteNum -- h.r_rdy=1 | tok_out:=t1; e_rdy:=1 -> Sync1, 
+    Sync1 -- h.r_rdy=0 | e_rdy:=0 -> WriteTok,
+    WriteTok -- h.r_rdy=1 | tok_out:=t2; e_rdy:=1 -> Sync2,
+    Sync2 -- h.r_rdy=0 | e_rdy:=0; num_p:=0; acc:=0 -> WaitC;
+  itrans: | rx_rd:=0; e_rdy:=0; acc:=0; num_p:=0; t2.num:=0 -> WaitC;
+  }

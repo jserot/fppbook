@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Sun Mar 17 16:27:57 2019
+[*]
+[dumpfile] "/Users/jserot/Desktop/SF1/vhdl/fppbook/ch4/genimp/tb.vcd"
+[dumpfile_mtime] "Sun Mar 17 16:27:17 2019"
+[dumpfile_size] 1885
+[savefile] "/Users/jserot/Desktop/SF1/vhdl/fppbook/ch4/genimp/tb.sav"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-25.816433 26500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 198
+[signals_width] 98
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@28
+e
+h
+rst
+s_moore
+s_mealy1
+s_mealy2
++{s_gen} u3.s
+[pattern_trace] 1
+[pattern_trace] 0

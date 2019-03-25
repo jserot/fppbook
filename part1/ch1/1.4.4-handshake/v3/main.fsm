@@ -1,0 +1,38 @@
+type t_data = int # Par exemple
+
+fsm model Emetteur(
+     in h: event,
+     in r_rdy: bool,
+     out dout: t_data)
+  {
+  states: E1, E2;
+  vars: cnt: int;
+  trans:
+    E1 -- h.r_rdy=1 | dout:=cnt; cnt:=cnt+1 -> E2,
+    E2 -- h.r_rdy=0 -> E1;
+  itrans: | cnt:=1 -> E1;
+  }
+
+fsm model Recepteur(
+     in h: event,
+     in din: t_data,
+     out r_rdy: bool,
+     out dout: t_data)
+  {
+  states: R1, R2;
+  vars: x: int;
+  trans:
+    R1 -- h | x:=din; dout:=din; r_rdy:=0 -> R2,
+    R2 -- h | r_rdy:=1 -> R1;
+  itrans: | r_rdy:=1 -> R1;
+  }
+
+input He:event = periodic(10,10,300)
+input Hr:event = periodic(24,15,300)
+
+shared r_rdy:bool
+shared v:t_data
+shared dout:t_data
+
+fsm e = Emetteur(He,r_rdy,v)
+fsm r = Recepteur(Hr,v,r_rdy,dout)

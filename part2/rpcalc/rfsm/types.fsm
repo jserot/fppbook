@@ -1,0 +1,8 @@
+type num_t = int<8>
+
+type tag_t = enum { Number, Enter, Plus, Minus, Mult, Div }
+
+type token_t = record {
+  tag: tag_t,
+  num: num_t
+  }

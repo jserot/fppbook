@@ -1,0 +1,31 @@
+# UART - TX Part
+
+type bit = int<1>
+
+fsm model TX <n: int>  (
+     # n donne la durée d'un bit (en périodes de H)
+     in h: event,
+     in txData: int<8>,
+     in txWr: bool,
+    out txRdy: bool,
+    out tx: bit)  
+  {
+  states: Repos, Start, Data, Parite, Stop;
+  vars:
+    d: int<8>,
+    i: int<0:8>,
+    p: int<1>,
+    k: int<0:n>;
+  trans:
+    Repos -- h.txWr=1 | tx:=0; k:=0; d:=txData; txRdy:=0 -> Start,
+    Start -- h.k<n-1 | k:=k+1 -> Start,
+    Start -- h.k=n-1 | tx:=d[0]; p:=d[0]; i:=1; k:=0 -> Data,
+    Data -- h.k<n-1 | k:=k+1 -> Data,
+    Data -- h.(k=n-1).(i<8) | tx:=d[i]; p:=p^d[i]; i:=i+1; k:=0 -> Data,
+    Data -- h.(k=n-1).(i=8) | tx:=p; k:=0 -> Parite,
+    Parite -- h.k<n-1 | k:=k+1 -> Parite,
+    Parite -- h.k=n-1 | k:=0; tx:=1 -> Stop,
+    Stop -- h.k<n-1 | k:=k+1 -> Stop,
+    Stop -- h.k=n-1 | tx:=1; txRdy:=1 -> Repos;
+  itrans: | txRdy:=1; tx:=1 -> Repos;
+  }

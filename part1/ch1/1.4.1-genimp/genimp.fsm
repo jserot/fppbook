@@ -1,0 +1,38 @@
+# Premiere version (figure 1.12b)
+
+fsm model genimp_1 (
+  in h: event,
+  in  e: bool,
+  out s: bool)
+  {
+  states: R, T1, T2, T3;
+  trans: 
+    R -- h.e=1 | s:=1 -> T1,
+    T1 -- h -> T2,
+    T2 -- h -> T3,
+    T3 -- h | s:=0 -> R;
+  itrans: | s:=0 -> R;
+  }
+
+# Deuxieme version (figure 1.15b)
+
+fsm model genimp_2<n:int> (
+  in h: event,
+  in  e: bool,
+  out s: bool)
+  {
+  states: R, T;
+  vars: k: int<1:n>;
+  trans: 
+    R -- h.e=1 | k:=1; s:=1 -> T,
+    T -- h.k<n | k:=k+1 -> T,
+    T -- h.k=n | s:=0 -> R;
+  itrans: | s:=0 -> R;
+  }
+
+input H : event = periodic (10,0,200)
+input E : bool = value_changes (0:0, 25:1, 35:0, 85:1, 145:0)
+output S1, S2 : bool 
+
+fsm g1 = genimp_1(H,E,S1)
+fsm g2 = genimp_2<3>(H,E,S2)

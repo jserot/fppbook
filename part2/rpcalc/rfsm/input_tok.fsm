@@ -1,0 +1,13 @@
+fsm model InputTok<n: int>(
+     in h: event,
+     in r_rdy: bool,
+     out data: token_t,
+     out e_rdy: bool)
+  {
+  states: E1, E2;
+  vars: i: int;
+  trans:
+    E1 -- h.(r_rdy=1).(i<n) | data:=input_tokens[i]; i:=i+1; e_rdy:=1 -> E2,
+    E2 -- h.r_rdy=0 | e_rdy:=0 -> E1;
+  itrans: | e_rdy:=0; i:=0 -> E1;
+  }

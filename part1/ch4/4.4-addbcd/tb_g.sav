@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Tue Jan  1 10:53:45 2019
+[*]
+[dumpfile] "/Users/jserot/Desktop/SF1/vhdl/csn-book/ch4/addbcd/tb_g.vcd"
+[dumpfile_mtime] "Tue Jan  1 10:47:28 2019"
+[dumpfile_size] 1951
+[savefile] "/Users/jserot/Desktop/SF1/vhdl/csn-book/ch4/addbcd/tb_g.sav"
+[timestart] 0
+[size] 1000 600
+[pos] 233 61
+*-25.826963 73800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] u.
+[treeopen] u.adds(1).
+[treeopen] u.adds(2).
+[sst_width] 198
+[signals_width] 98
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@22
+u.addf.a[3:0]
+u.adds(2).addi.a[3:0]
+u.adds(1).addi.a[3:0]
+u.add0.a[3:0]
+u.addf.b[3:0]
+u.adds(2).addi.b[3:0]
+u.adds(1).addi.b[3:0]
+u.add0.b[3:0]
+@29
+u.addf.co[0]
+@22
+u.addf.s[3:0]
+@c00022
+u.adds(2).addi.s[3:0]
+@28
+(0)u.adds(2).addi.s[3:0]
+(1)u.adds(2).addi.s[3:0]
+(2)u.adds(2).addi.s[3:0]
+(3)u.adds(2).addi.s[3:0]
+@1401200
+-group_end
+@22
+u.adds(1).addi.s[3:0]
+u.add0.s[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

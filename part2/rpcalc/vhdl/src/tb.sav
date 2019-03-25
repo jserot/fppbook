@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.54 (w)1999-2014 BSI
+[*] Sun Dec 16 12:21:12 2018
+[*]
+[dumpfile] "/Users/jserot/Desktop/SF1/vhdl/rpcalc/rtl/src/tb.ghw"
+[dumpfile_mtime] "Sun Dec 16 12:11:17 2018"
+[dumpfile_size] 5848
+[savefile] "/Users/jserot/Desktop/SF1/vhdl/rpcalc/rtl/src/tb.sav"
+[timestart] 0
+[size] 1143 619
+[pos] 98 65
+*-27.302364 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb.
+[treeopen] top.tb.calc.
+[treeopen] top.tb.calc.tok1.
+[treeopen] top.tb.calc.tok2.
+[sst_width] 198
+[signals_width] 124
+[sst_expanded] 1
+[sst_vpaned_height] 169
+@28
+top.tb.rst
+top.tb.clk
+top.tb.rx_rdy
+top.tb.rx_rd
+top.tb.rx_data
++{top.tb.calc.tok1:tag} top.tb.calc.tok1.tag
+@24
++{top.tb.calc.tok1:num} #{top.tb.calc.tok1.num[15:0]} top.tb.calc.tok1.num[15] top.tb.calc.tok1.num[14] top.tb.calc.tok1.num[13] top.tb.calc.tok1.num[12] top.tb.calc.tok1.num[11] top.tb.calc.tok1.num[10] top.tb.calc.tok1.num[9] top.tb.calc.tok1.num[8] top.tb.calc.tok1.num[7] top.tb.calc.tok1.num[6] top.tb.calc.tok1.num[5] top.tb.calc.tok1.num[4] top.tb.calc.tok1.num[3] top.tb.calc.tok1.num[2] top.tb.calc.tok1.num[1] top.tb.calc.tok1.num[0]
+@28
++{top.tb.calc.tok2:tag} top.tb.calc.tok2.tag
+@24
++{top.tb.calc.tok2:num} #{top.tb.calc.tok2.num[15:0]} top.tb.calc.tok2.num[15] top.tb.calc.tok2.num[14] top.tb.calc.tok2.num[13] top.tb.calc.tok2.num[12] top.tb.calc.tok2.num[11] top.tb.calc.tok2.num[10] top.tb.calc.tok2.num[9] top.tb.calc.tok2.num[8] top.tb.calc.tok2.num[7] top.tb.calc.tok2.num[6] top.tb.calc.tok2.num[5] top.tb.calc.tok2.num[4] top.tb.calc.tok2.num[3] top.tb.calc.tok2.num[2] top.tb.calc.tok2.num[1] top.tb.calc.tok2.num[0]
+@28
+top.tb.tx_data
+top.tb.tx_wr
+top.tb.tx_rdy
+[pattern_trace] 1
+[pattern_trace] 0

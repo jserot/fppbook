@@ -1,0 +1,31 @@
+# Test program for the [c2t] and [t2c] models
+#
+# +---------+              +----------+            +----------+            +----------+
+# |         |    rx_rd     |          |    r_rdy   |          |    tx_rdy  |          |
+# |         |<-------------|          |<-----------|          |<-----------|          |
+# |         |              |          |            |          |            |          |
+# |         |  c1:char     |          |  t:token   |          |  c2:char   |          |
+# |         |      –       |          |      –     |          |      –     |          |
+# |  Input  |----->|------>|   C2T    |----->|---->|   T2C    |----->|---->|  Output  |
+# |   Car   |      –       |          |      –     |          |      –     |    Car   |
+# |         |              |          |            |          |            |          |
+# |         |    rx_rdy    |          |    e_rdy   |          |    tx_wr   |          |
+# |         |------------->|          |----------->|          |----------->|          |
+# |         |              |          |            |          |            |          |
+# +---------+              +----------+            +----------+            +----------+
+
+constant input_chars : char array[9] = [ '1', '^', '1', '2', '^', '1', '2', '3', '^' ] 
+
+input H:event = periodic(10,10,1000)
+
+shared c1: char
+shared rx_rdy, rx_rd: bool
+shared r_rdy, e_rdy: bool
+shared t: token_t
+shared c2: char
+shared tx_rdy, tx_wr: bool
+
+fsm i = InputCar<9>(H, rx_rd, c1, rx_rdy)
+fsm c = C2T(H, rx_rdy, c1, rx_rd, r_rdy, t, e_rdy)
+fsm t = T2C(H, e_rdy, t, r_rdy, tx_wr, c2, tx_rdy)
+fsm o = OutputCar(H, tx_wr, c2, tx_rdy)

@@ -1,0 +1,28 @@
+fsm model Pgcd
+(in h: event,
+ in start: bool, 
+ in m: int,
+ in n: int,
+ out r: int, 
+ out rdy: bool)
+{
+  states: Repos, Calcul;
+  vars:
+    a: int,
+    b: int;
+  trans:
+    Repos -- h.start=1 | a:=m; b:=n; rdy:=0 -> Calcul,
+    Calcul -- h.a>b | a:=a-b -> Calcul,
+    Calcul -- h.a<b | b:=b-a -> Calcul,
+    Calcul -- h.a=b | r:=a; rdy:=1 -> Repos;
+  itrans: | rdy:=1 -> Repos;
+  }
+
+input H:event = periodic(10,10,430)
+input start: bool = value_changes(0:0, 15:1, 25:0, 105:1, 115:0, 205:1, 215:0, 295:1, 305:0, 385:1, 395:0)
+output rdy: bool
+input m: int = value_changes(5:24, 95:12, 195:120, 285:96, 385:255 )
+input n: int = value_changes(5:30, 95:5, 195:96, 285:120, 385:255 )
+output r: int
+
+fsm P = Pgcd(H,start,m,n,r,rdy)
